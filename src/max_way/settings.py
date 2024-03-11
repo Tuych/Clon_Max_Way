@@ -71,6 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'max_way.wsgi.application'
+AUTH_USER_MODEL = 'user.User'
 
 
 # Database
@@ -78,8 +79,12 @@ WSGI_APPLICATION = 'max_way.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       "ENGINE": "django.db.backends.postgresql",
+        "NAME": "clon_max_way",
+        "USER": "postgres",
+        "PASSWORD": "baxa05",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 

@@ -46,8 +46,9 @@
       <div class="main__menu">
         <ul> 
           <li class="list"><a href="#">Menyu  </a></li>
-          <li class="list"><a href="#">Bolalar uchun</a></li>
           <li class="list"><a href="#">Filiallar</a></li>
+          <li class="list"><a href="{% url 'login' %}">Login</a></li>
+          <li class="list"><a href="{% url 'register' %}">Register</a></li>
           <li class="list"><a href="tel:998712005400">(+99871) 200-54-00</a></li>
           <div class="net__icon"> <a href="#">
                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,8 +94,12 @@
           <div class="menu__ul"> 
             <ul> 
               <li class="list"><a href="index.html">Menyu  </a></li>
-              <li class="list"><a href="index.html">Bolalar uchun</a></li>
+              <li class="list"><a href="index.html">Bolalar uchun </a></li>
               <li class="list"><a href="index.html">Filiallar</a></li>
+              {% if request.user.is_anonymous %}
+                  <li class="list"><a href="{% url 'login' %}">Login</a></li>
+                  <li class="list"><a href="{% url 'register' %}">Register</a></li>
+              {% endif %}
             </ul>
             <div class="phone--shop">
               <div class="phone"> 
@@ -174,7 +179,11 @@
       </div>
       <div class="buttons">
         <button class="clear"><a href="index.html"> Очистить</a></button>
-        <button class="order"><a href="{% url 'order' %}"> Заказать</a></button>
+        {% if request.user.is_anonymous %}
+            <button class="order"><a href="{% url 'login' %}"> Заказать</a></button>
+        {% else %}
+            <button class="order"><a href="{% url 'order' %}"> Заказать</a></button>
+        {% endif %}
       </div>
     </div>
     <div class="content"> 
