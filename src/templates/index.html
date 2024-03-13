@@ -208,9 +208,10 @@
           </button>
         </div>
         <div class="slide"> 
-          {% for product in products %}
-              <div class="big__title {{product.category}}">{{product.category}}</div>
-              <div class="row {{product.category}}"> 
+          {% for category in categorys %}
+              <div class="big__title {{category.name}}">{{category.name}}</div>
+              <div class="row {{category.name}}"> 
+                {% for product in category.product_set.all %}
                 <div class="col-6 col-md-12 col-xs-12"> 
                   <div class="item pizza">
                     <div class="box"> 
@@ -228,6 +229,7 @@
                     </div>
                   </div>
                 </div>
+                {% endfor %}
           
               </div>
           {% endfor %} 

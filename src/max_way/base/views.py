@@ -6,25 +6,15 @@ from max_way.product.models import Category,Product
 
 
 def home(request):
-    products=Product.objects.select_related('category')
-    categorys=Category.objects.all()
+    # products=Product.objects.select_related('category')
+    categorys=Category.objects.prefetch_related('product_set').all()
     
-    result=[]
-    for i in products:
-        result.append({
-            'category':i.category.name,
-            'name':i.name,
-            'image':i.image,
-            'discription':i.discription,
-            'price':i.price
-
-        })
-
+    
     
     
     context={
         "categorys":categorys,
-        'products':result
+        
     }
 
 
