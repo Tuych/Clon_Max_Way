@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'max_way.base',
     'max_way.product',
     'max_way.user',
+    
+
 ]
 
 MIDDLEWARE = [
