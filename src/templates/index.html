@@ -216,14 +216,16 @@
                   <div class="item pizza">
                     <div class="box"> 
                       <div class="box__img">  <img class="img" src="{{product.image}}" alt=""/>
-                        <div class="img__hot"><img class="hot" src="{% static 'img/hot.svg' %}" alt=""/></div>
+                        <div class="img__hot"><img class="hot" src="{% static 'img/hot.svg' %}" ></div>
                       </div>
                       <div class="box__content"> 
-                        <div class="box__title">{{product.name}}<img src="{% static 'img/chesse.svg' %}" alt=""/></div>
+                        <div class="box__title">{{product.name}}</div>
                         <div class="box__text">{{product.discription}}</div>
                         <div class="cost__btn">
                           <div class="box__cost">{{product.price}} UZS</div>
-                          <button class="box__btn"> <img src="{% static 'img/plus.png' %}" alt=""/></button>
+                          
+                            <button class="box__btn" type="submit" value="{{product.id}}"> <img src="{% static 'img/plus.png' %}" alt=""/></button>
+                          
                         </div>
                       </div>
                     </div>
